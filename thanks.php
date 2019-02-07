@@ -32,19 +32,26 @@ include 'src/instamojo.php';
 $api = new Instamojo\Instamojo($api_key, $api_secret,'https://'.$mode.'.instamojo.com/api/1.1/');
 
 $payid = $_GET["payment_request_id"];
+$status_transaction = $_GET["payment_status"];
+
+if($status_transaction == "Failed") {
+
+    echo "<h4> Payment Failed. Go back to <a href='index.php'> homepage for payment</a> </h4>";
+
+}
+else {
+
+  try {
+      $response = $api->paymentRequestStatus($payid);
 
 
-try {
-    $response = $api->paymentRequestStatus($payid);
+      echo "<h4>Payment ID: " . $response['payments'][0]['payment_id'] . "</h4>" ;
+      echo "<h4>Payment Name: " . $response['payments'][0]['buyer_name'] . "</h4>" ;
+      echo "<h4>Payment Email: " . $response['payments'][0]['buyer_email'] . "</h4>" ;
+      echo "<h4>Purpose: " . $response['purpose'] . "</h4>" ;
+      echo "<h4>Payment Status: " . $response['status'] . "</h4>" ;
+      echo "<h4>Payment Amount: " . $response['amount'] . " ".$response['payments'][0]['currency']."</h4>" ;
 
-
-    echo "<h4>Payment ID: " . $response['payments'][0]['payment_id'] . "</h4>" ;
-    echo "<h4>Payment Name: " . $response['payments'][0]['buyer_name'] . "</h4>" ;
-    echo "<h4>Payment Email: " . $response['payments'][0]['buyer_email'] . "</h4>" ;
-    echo "<h4>Purpose: " . $response['purpose'] . "</h4>" ;
-    echo "<h4>Payment Status: " . $response['status'] . "</h4>" ;
-    echo "<h4>Payment Amount: " . $response['amount'] . " ".$response['payments'][0]['currency']."</h4>" ;
-    
     ?>
 
 
@@ -54,7 +61,7 @@ catch (Exception $e) {
     print('Error: ' . $e->getMessage());
 }
 
-
+}
 
   ?>
  </div>

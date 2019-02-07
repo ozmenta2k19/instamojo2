@@ -9,7 +9,7 @@
 <div class="w3-content w3-border" style="margin-top: 15%">
     <h1 class="w3-center">Ozmenta' 19</h1>
   <div class="w3-container w3-blue">
-    <h2>  </h2>
+    <h2>Fill Form to Confirm your ticket</h2>
   </div>
   <form class="w3-container" method='POST' action="">
        <p>      
