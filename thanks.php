@@ -8,8 +8,7 @@ include 'config.php';
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 <div class="w3-container">
-    <h1 class='w3-center'>Your Payment Details! <a href='index.php'>Go back Home</a></h1>
-    <p class="w3-center">You can also save all these in Database using simple Insert Query. </p>
+    <h1 class='w3-center'>Your Payment Details!</h1>
     <div class="w3-container w3-center">
   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-blue w3-hover-blue">
       Click to see the insert Script.</button>
@@ -36,7 +35,7 @@ $status_transaction = $_GET["payment_status"];
 
 if($status_transaction == "Failed") {
 
-    echo "<h4> Payment Failed. Go back to <a href='index.php'> homepage for payment</a> </h4>";
+    echo "<h4 style='color:red;margin-left:10%'> Payment Failed. Go back to <a href='index.php'> homepage for payment</a> </h4>";
 
 }
 else {
@@ -44,7 +43,7 @@ else {
   try {
       $response = $api->paymentRequestStatus($payid);
 
-
+      echo "<h4 style='color:#16bf0d;margin-left:10%'> Payment Success!! </h4>";
       echo "<h4>Payment ID: " . $response['payments'][0]['payment_id'] . "</h4>" ;
       echo "<h4>Payment Name: " . $response['payments'][0]['buyer_name'] . "</h4>" ;
       echo "<h4>Payment Email: " . $response['payments'][0]['buyer_email'] . "</h4>" ;
