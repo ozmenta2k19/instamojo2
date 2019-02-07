@@ -25,7 +25,7 @@
     <label class="w3-text-black"><b>Amount</b></label>
     <input class="w3-input w3-border" value="513" readonly name="amount" type="number" required></p>
     <p>
-    <input type="submit" name='submit' class="w3-btn w3-blue" value='Pay now 513 (Rs 500 + Rs13- transaction fee)'></p>
+    <input type="submit" name='submit' class="w3-btn w3-blue" value='Pay now 513 (Rs 500 + Rs13 transaction fee)'></p>
   </form>
 </div>
 
