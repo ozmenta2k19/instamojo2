@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
-<div class="w3-content w3-border" style="margin-top: 15%">
+<div class="w3-content w3-border" style="margin-top: 12%">
     <h1 class="w3-center">Ozmenta' 19</h1>
   <div class="w3-container w3-blue">
     <h2>Fill Form to Confirm your ticket</h2>
@@ -17,10 +17,10 @@
     <input class="w3-input w3-border" placeholder="See your mail for the ID" name="name" type="text" required></p>
     <p>      
     <label class="w3-text-black"><b>Number</b></label>
-    <input class="w3-input w3-border" name="number" type="text" required></p>
+    <input class="w3-input w3-border" placeholder="Your mobile number"name="number" type="text" required></p>
     <p>      
     <label class="w3-text-black"><b>Email</b></label>
-    <input class="w3-input w3-border" name="email" type="text" required></p>
+    <input class="w3-input w3-border" placeholder="Your Email ID" name="email" type="text" required></p>
     <p>      
     <label class="w3-text-black"><b>Amount</b></label>
     <input class="w3-input w3-border" value="513" readonly name="amount" type="number" required></p>
