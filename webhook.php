@@ -51,7 +51,7 @@ if($mac_provided == $mac_calculated){
 
 
                 $to = $email;
-                $subject = 'Test Payment Details | ' .$data['buyer_name'].'';
+                $subject = 'Payment Details | ' .$data['buyer_name'].'';
                 $message = "<h1>Payment Details</h1>";
                 $message .= "<hr>";
                 $message .= '<p><b>ID:</b> '.$data['payment_id'].'</p>';
