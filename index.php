@@ -13,8 +13,8 @@
   </div>
   <form class="w3-container" method='POST' action="">
        <p>      
-    <label class="w3-text-black"><b>Name</b></label>
-    <input class="w3-input w3-border" name="name" type="text" required></p>
+    <label class="w3-text-black"><b>Registration ID</b></label>
+    <input class="w3-input w3-border" placeholder="See your mail for the ID" name="name" type="text" required></p>
     <p>      
     <label class="w3-text-black"><b>Number</b></label>
     <input class="w3-input w3-border" name="number" type="text" required></p>
