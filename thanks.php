@@ -42,7 +42,7 @@ if($status_transaction == "Failed") {
                 $query = mysqli_query($conn,"INSERT INTO payments (payment_id,buyer_name,email,payment_status)
                                       VALUES('$payment_id','$buyer_name','$buyer_email','$payment_status')");
                 if ($query) {
-                    echo "Data Inserted";
+                    echo "";
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
@@ -53,6 +53,31 @@ else {
 
   try {
       $response = $api->paymentRequestStatus($payid);
+
+                $servername = "us-cdbr-iron-east-03.cleardb.net";
+                $username = "b5411cc5ff42b1";
+                $password = "605d9c13";
+                $dbname = "heroku_24da2d24ca5a0ed";
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                } 
+                  $payment_id = $response['payments'][0]['payment_id'];
+                  $buyer_name = $response['payments'][0]['buyer_name'];
+                  $buyer_email = $response['payments'][0]['buyer_email'];
+                  $purpose =  $response['purpose'];
+                  $payment_status = $response['status'];
+                  $payment_amount = $response['amount'];
+                $query = mysqli_query($conn,"INSERT INTO payments (payment_id,buyer_name,email,payment_status)
+                                      VALUES('$payment_id','$buyer_name','$buyer_email','$payment_status')");
+                if ($query) {
+                    echo "";
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
+                mysqli_close($conn);
 
       echo "<h4 style='color:#16bf0d;margin-left:10%'> Payment Success!! </h4>";
       echo "<h4>Payment ID: " . $response['payments'][0]['payment_id'] . "</h4>" ;

@@ -23,33 +23,6 @@ $mac_calculated = hash_hmac("sha1", implode("|", $data), $api_salt);
 if($mac_provided == $mac_calculated){
     if($data['status'] == "Credit"){
 
-                $servername = "us-cdbr-iron-east-03.cleardb.net";
-                $username = "b5411cc5ff42b1";
-                $password = "605d9c13";
-                $dbname = "heroku_24da2d24ca5a0ed";
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                } 
-                  $payment_id = $response['payments'][0]['payment_id'];
-                  $buyer_name = $response['payments'][0]['buyer_name'];
-                  $buyer_email = $response['payments'][0]['buyer_email'];
-                  $purpose =  $response['purpose'];
-                  $payment_status = $response['status'];
-                  $payment_amount = $response['amount'];
-                $query = mysqli_query($conn,"INSERT INTO payments (payment_id,buyer_name,buyer_email,payment_status)
-                                      VALUES('$payment_id','$buyer_name','$buyer_email','$payment_status')");
-                if ($query) {
-                    echo "Data Inserted";
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-                mysqli_close($conn);
-
-
-
                 $to = $email;
                 $subject = 'Payment Details | ' .$data['buyer_name'].'';
                 $message = "<h1>Payment Details</h1>";
@@ -72,32 +45,7 @@ if($mac_provided == $mac_calculated){
     }
     else{
         // Payment was unsuccessful, mark it as failed in your database.
-        // You can acess payment_request_id, purpose etc here.
-        $servername = "us-cdbr-iron-east-03.cleardb.net";
-                $username = "b5411cc5ff42b1";
-                $password = "605d9c13";
-                $dbname = "heroku_24da2d24ca5a0ed";
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                } 
-                  $payment_id = $response['payments'][0]['payment_id'];
-                  $buyer_name = $response['payments'][0]['buyer_name'];
-                  $buyer_email = $response['payments'][0]['buyer_email'];
-                  $purpose =  $response['purpose'];
-                  $payment_status = $response['status'];
-                  $payment_amount = $response['amount'];
-                $query = mysqli_query($conn,"INSERT INTO payments (payment_id,buyer_name,buyer_email,payment_status)
-                                      VALUES('$payment_id','$buyer_name','$buyer_email','$payment_status')");
-                if ($query) {
-                    echo "Data Inserted";
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-                mysqli_close($conn);
-
+        // You can acess payment_request_id, purpose etc here
     }
 }
 else{
