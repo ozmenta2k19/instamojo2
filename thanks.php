@@ -44,10 +44,7 @@ try {
     echo "<h4>Purpose: " . $response['purpose'] . "</h4>" ;
     echo "<h4>Payment Status: " . $response['status'] . "</h4>" ;
     echo "<h4>Payment Amount: " . $response['amount'] . " ".$response['payments'][0]['currency']."</h4>" ;
-
-  echo "<hr><pre>";
-   print_r($response);
-echo "</pre>";
+    
     ?>
 
 

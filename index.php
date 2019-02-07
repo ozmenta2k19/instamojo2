@@ -6,10 +6,10 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
-<div class="w3-content w3-border w3-margin-top">
+<div class="w3-content w3-border" style="margin-top: 15%">
     <h1 class="w3-center">Ozmenta' 19</h1>
   <div class="w3-container w3-blue">
-    <h2>Fill Form!</h2>
+    <h2>  </h2>
   </div>
   <form class="w3-container" method='POST' action="">
        <p>      
@@ -25,7 +25,7 @@
     <label class="w3-text-black"><b>Amount</b></label>
     <input class="w3-input w3-border" value="500" readonly name="amount" type="number" required></p>
     <p>
-    <input type="submit" name='submit' class="w3-btn w3-blue" value='Checkout With Instamojo!'></p>
+    <input type="submit" name='submit' class="w3-btn w3-blue" value='Pay now'></p>
   </form>
 </div>
 
